@@ -9,6 +9,12 @@ export class Term {
     
     @Prop() def: string;
 
+    hostData() {
+        return {
+            tabindex: 0
+        }
+    }
+
     render() {
         return (
             <dl>

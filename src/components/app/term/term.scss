@@ -67,13 +67,15 @@ dd {
     }
 }
 
-:host(:hover) {
+:host(:hover),
+:host(:focus) {
+    outline: 0;
     svg {
         fill: app-color(gray, shade);
     }
     dt {
         background-color: app-color(ui, light);
-        border-color: app-color(gray, light);
+        border-color: app-color(blue);
         color: app-color(gray, dark);
     }
     dd {
