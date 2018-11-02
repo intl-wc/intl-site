@@ -1,0 +1,30 @@
+:host {
+    --padding: 12px;
+    position: relative;
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    background-color: app-color(ui, light);
+    // padding: 12px 0 24px;
+    // color: rgba(255, 255, 255, 0.8);
+
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    box-shadow: app-shadow(3);
+
+    min-height: 420px;
+}
+
+div.wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: auto;
+    padding: var(--padding);
+}
+
+code {
+    margin-right: var(--padding);
+}

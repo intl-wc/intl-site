@@ -1,0 +1,31 @@
+page-home {
+    display: block;
+
+    min-height: 100vh;
+    --hero-background-color: var(--c-ui-tint);
+    --hero-background-image: linear-gradient(to top, var(--c-ui-tint) 0%, var(--c-ui-light) 67%);
+}
+
+.cta {
+    height: 128px;
+    button {
+        @include button-reset;
+        background-color: app-color(yellow);
+        padding: 1em 1.5em;
+        text-transform: uppercase;
+        font-family: 'Fira Code', monospace;
+        font-weight: 500;
+        border-radius: 4px;
+        box-shadow: app-shadow(1);
+
+        &:hover, &:focus {
+            transform: translateY(-1px);
+            box-shadow: app-shadow(3);
+        }
+        &:active {
+            background-color: app-color(yellow, shade);
+            transform: translateY(0);
+            box-shadow: app-shadow(0);
+        }
+    }
+}

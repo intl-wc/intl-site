@@ -1,0 +1,63 @@
+:host {
+    display: block;
+    height: 22px;
+    cursor: pointer;
+    user-select: none;
+}
+
+:host(:hover) {
+    li::after {
+        opacity: 1;
+        background-color: app-color(gray, dark);
+    }
+}
+
+:host(.is-open) {
+    li::after {
+        opacity: 1;
+        background-color: app-color(blue, dark);
+    }
+    p {
+        color: white;
+    }
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    padding-left: 12px;
+
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 1em;
+    font-weight: normal;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 4px 0;
+
+    &::after {
+        visibility: visible;
+        opacity: 0;
+        display: block;
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 26px;
+        z-index: 0;
+    }
+}
+
+p {
+    margin: 0;
+    z-index: 1;
+}
+
+.icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+    z-index: 1;
+}
+

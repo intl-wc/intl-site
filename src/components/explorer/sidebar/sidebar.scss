@@ -1,0 +1,47 @@
+:host {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;  
+    background-color: app-color(gray, shade);
+    padding: 12px 0 24px;
+    color: rgba(255, 255, 255, 0.8);
+    overflow: hidden;
+    
+    padding-left: 12px;
+
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    box-shadow: app-shadow(3);
+
+    @include breakpoint(sm) {
+        min-height: 360px;
+        height: 100%;
+    }
+}
+
+.label {
+    height: 32px;
+    display: flex;
+    margin: 0;
+    font-size: 14px;
+    z-index: 1;
+
+    h2 {
+        margin: 0;
+        font-size: inherit;
+        z-index: 1;
+    }
+
+    &::after {
+        visibility: visible;
+        background-color: app-color(gray, dark);
+        display: block;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 40px;
+        z-index: 0;
+    }
+}

@@ -7,10 +7,47 @@
 
   Any global CSS variables should also be applied here.
 */
+:root {
+  --c-yellow-light: #FFE9B8;
+  --c-yellow-tint: #FFD160;
+  --c-yellow: #FFCA29;
+  --c-yellow-shade: #F49F23;
+  --c-yellow-dark: #DC8B27;
 
+  --c-red: #E8513C;
+
+  --c-blue: #4D90CC;
+  --c-blue-shade: #2C81C4;
+  --c-blue-dark: #006CAE;
+
+  --c-green: #5CBA47;
+  
+  --c-ui-light: #f8fbff;
+  --c-ui-tint: #E9EFF7;
+  
+  --c-gray-light: #CEDDEE;
+  --c-gray-tint: #9BA5B3;
+  --c-gray: #686F79;
+  --c-gray-shade: #4E535A;
+  --c-gray-dark: #34383C;
+
+  --shadow-0: 0 0px 1px 0 rgba(0,0,0,0.06),
+              0 1px 2px 0 rgba(0,0,0,0.06);
+  --shadow-1: 0 1px 3px 0 rgba(0,0,0,0.06),
+              0 4px 8px 0 rgba(0,0,0,0.06);
+  --shadow-2: 0 2px 4px 0 rgba(0,0,0,0.06),
+              0 5px 10px 0 rgba(0,0,0,0.06);
+  --shadow-3: 0 4px 8px 0 rgba(0,0,0,0.06),
+              0 6px 12px 0 rgba(0,0,0,0.06);
+}
 
 body {
   margin: 0px;
   padding: 0px;
   font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  color: app-color(gray, shade);
+}
+
+em {
+  font-style: normal;
 }

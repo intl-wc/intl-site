@@ -1,0 +1,31 @@
+section.container {
+    @include container;
+    height: inherit;
+    padding: inherit;
+}
+
+:host(.is-centered) section.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+:host(.is-two-up) section.container {
+    display: grid;
+
+    @include breakpoint(sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+:host(.is-three-up) section.container {
+    display: grid;
+
+    @include breakpoint(sm) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @include breakpoint(lg) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}

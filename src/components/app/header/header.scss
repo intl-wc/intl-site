@@ -1,0 +1,104 @@
+:host {
+    position: relative;
+    display: block;
+    z-index: 99;
+    width: 100vw;
+    --offset: 3em;
+}
+
+.sentinel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+    height: var(--offset);
+}
+
+header {
+    position: relative;
+    margin-top: var(--offset);
+    top: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
+    height: 3em;
+    
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: none;
+    transition: background-color 200ms cubic-bezier(0.215, 0.610, 0.355, 1),
+                box-shadow 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
+
+    stencil-route-link {
+        display: block;
+        margin: auto;
+
+        a {
+            cursor: default;
+        }
+        a:not(.link-active) {
+            cursor: pointer;
+            &:hover .logo .paren {
+                fill: app-color(gray);
+            }
+        }
+    }
+
+    .logo {
+        display: block;
+        margin: auto;
+        user-select: none;
+        width: 128px;
+        transition: transform 200ms cubic-bezier(0.215, 0.610, 0.355, 1);
+
+        .paren, text {
+            transition: transform 350ms cubic-bezier(0.23, 1, 0.320, 1);
+        }
+    }
+
+    .logo-collapsed {
+
+        transform: scale(0.75);
+
+        .paren-open {
+            transform: translateX(400px);
+        }
+        .paren-close {
+            transform: translateX(-400px);
+        }
+        text {
+            transform: translate(654px, 419.862px);
+        }
+    }
+}
+
+:host(.is-fixed) {
+    height: 3em;
+ 
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin-top: 0;
+
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.06), 
+                    0 3px 6px 0 rgba(0,0,0,0.03);
+
+        .logo {
+            margin-bottom: -0.5em;
+        }
+
+        a.link-active {
+            cursor: pointer;
+            &:hover .logo .paren {
+                fill: app-color(gray);
+            }
+        }
+    }
+}

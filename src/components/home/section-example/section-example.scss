@@ -1,0 +1,9 @@
+:host {
+    display: block;
+    padding: 64px 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+section {
+    @include container;
+}

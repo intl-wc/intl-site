@@ -1,0 +1,7 @@
+{
+    "greeting": "Bonjour le monde!",
+    "title": {
+        "profile": "Profil"
+    },
+    "name": "Je m'appelle {{ name }}."
+}

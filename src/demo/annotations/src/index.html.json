@@ -1,0 +1,7 @@
+{
+    "6": "Loads @intl/core components from unpkg",
+    "7": "Optimizes performance by preloading default locale",
+    "11": "Required: Automatically loads JSON translation files",
+    "14": "Displays \"greeting\" phrase for current &lt;html> \"lang\"",
+    "17": "Displays \"profile\" phrase from inside \"title\" object"
+}

@@ -1,0 +1,7 @@
+{
+    "greeting": "你好，世界!",
+    "title": {
+        "profile": "轮廓"
+    },
+    "name": "我的名字是{{ name }}"
+}

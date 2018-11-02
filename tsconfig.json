@@ -6,7 +6,8 @@
     "experimentalDecorators": true,
     "lib": [
       "dom",
-      "es2015"
+      "es2016.array.include",
+      "es2017"
     ],
     "moduleResolution": "node",
     "module": "esnext",
@@ -20,6 +21,7 @@
     "src"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/demo/*"
   ]
 }

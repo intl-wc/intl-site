@@ -1,0 +1,81 @@
+:host {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+    h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    line-height: 1.5;
+    font-size: 1.414em;
+    color: app-color(gray);
+
+    > span {
+        font-family: 'Fira Code', monospace;
+        display: block;
+        font-size: 1.5em;
+        color: app-color(gray, dark);
+        margin-right: -0.5em;
+    }
+    }
+
+.links {
+    margin-top: 4em;
+    display: flex;
+    flex-grow: 1;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    .social {
+        font-size: 1.5em;
+
+        a {
+            &:hover, &:focus {
+                transform: scale(1.125);
+            }
+        }
+    }
+
+    .cta {
+        a {
+            display: flex;
+            align-items: center;
+
+            &:hover, &:focus {
+                ion-icon {
+                    transform: translateX(2px);
+                }
+            }
+        }
+    }
+
+    a {
+        display: inline-flex;
+        text-decoration: none;
+        color: app-color(blue);
+        padding: 0 4px;
+        transition: all 250ms cubic-bezier(0.23, 1, 0.320, 1);
+
+        &:hover, &:focus {
+            color: app-color(blue, dark);
+        }
+        &:active {
+            color: app-color(blue, dark);
+        }
+    }
+
+    ion-icon {
+        margin: 0 4px;
+        transition: transform 250ms cubic-bezier(0.23, 1, 0.320, 1);
+    }
+
+}
+
+@include breakpoint(sm) {
+    h2 {
+        font-size: 1.8em;
+    }
+}

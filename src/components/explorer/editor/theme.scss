@@ -1,0 +1,98 @@
+code[class*="language-"],
+pre[class*="language-"] {
+    font-size: 14px;
+    background: none;
+}
+
+code[class*="language-"] {
+    margin-right: var(--padding);
+}
+
+.language-json {
+    .token {
+        &.property { color: var(--c-yellow-shade); }
+        &.string { color: var(--c-green); }
+    }
+}
+
+.language-html {
+    .token {
+        &.attr-value {
+            color: var(--c-green);
+
+            .token.punctuation {
+                &:first-of-type {
+                    color: var(--c-gray);
+                }
+                color: var(--c-green);
+            }
+        }
+        &.style-attr.language-css {
+            .token:not(.attr-name) {
+                color: var(--c-red);
+            }
+        }
+    }
+}
+
+.language-ts {
+    code {
+        color: var(--c-red);
+    }
+    .token {
+        &.keyword {
+            color: var(--c-blue);
+        }
+        &.string {
+            color: var(--c-green);
+        }
+        &.class-name {
+            color: var(--c-red);
+        }
+    }
+}
+
+Annotation CSS 
+code[class*="language-"],
+pre[class*="language-"] {
+    .line.line-annotated {
+        position: relative;
+        // &::before {
+        //     --size: 0.33em;
+        //     display: inline-block;
+        //     content: '';
+        //     width: var(--size);
+        //     height: var(--size);
+        //     border-radius: calc(var(--size) / 2);
+        //     margin-left: calc(var(--size) * -1);
+        //     margin-top: calc(var(--size) / -2);
+        //     background-color: app-color(gray, light);
+        // }
+        *:not(.annotation) {
+            cursor: help;
+            border-bottom: 1px solid app-color(gray, light);
+        }
+        .annotation {
+            pointer-events: none;
+            position: absolute;
+            display: none;
+            min-height: 3em;
+            top: 1.67em;
+            padding-top: 0.33em;
+            color: app-color(gray);
+            z-index: 1;
+            background-color: app-color(ui, light);
+            left: 0;
+            right: 0;
+        }
+
+        &:hover {
+            *:not(.annotation) {
+                border-color: app-color(gray);
+            }
+            .annotation {
+                display: block;
+            }
+        }
+    }
+}

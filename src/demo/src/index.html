@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title>Intl Demo</title>
+
+    <script src="https://unpkg.com/@intl/core@next/dist/intl.js"></script>
+    <link rel="preload" as="fetch" crossorigin href="/i18n/en.json">
+  </head>
+  <body>
+
+    <intl-dictionary src="/i18n"></intl-dictionary>
+
+    <main class="app">
+      <intl-phrase name="greeting"></intl-phrase>
+
+      <a href="/profile">
+        <intl-phrase name="title.profile"></intl-phrase>
+      </a>
+    </main>
+
+  </body>
+</html>

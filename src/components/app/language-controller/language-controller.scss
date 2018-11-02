@@ -1,0 +1,127 @@
+:host {
+    --size: 48px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    padding: 12px;
+}
+
+:host(:hover) {
+    .label-current {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+svg {
+    transition: transform 125ms cubic-bezier(0.755, 0.05, 0.855, 0.06);
+}
+
+:host(.is-opening) svg {
+    transform: rotate(45deg);
+}
+:host(.is-open) svg {
+    animation: rotateIn 125ms cubic-bezier(0.23, 1, 0.320, 1) forwards;
+}
+:host(.is-closing) svg {
+    animation: none;
+    transform: scale(0);
+}
+
+button {
+    @include button-reset;
+}
+
+.fab {
+    font-weight: 400;
+    padding: 3px 8px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: calc(var(--size) / 2);
+    background: app-color(yellow);
+    outline: none;
+
+    transition: transform box-shadow 250ms cubic-bezier(0.23, 1, 0.320, 1);
+    box-shadow: app-shadow(1);
+
+    &:hover,
+    &:focus {
+        box-shadow: app-shadow(3);
+        transform: translateY(-1px);
+    }
+
+    &:active {
+        box-shadow: app-shadow(0);
+        transform: translateY(0px);
+    }
+}
+
+svg {
+    fill: app-color(gray, dark);
+}
+
+ul {
+    display: none;
+    font-size: 16px;
+    position: fixed;
+    bottom: var(--size);
+    list-style: none;
+    padding: 0;
+    margin-bottom: 24px;
+    min-width: var(--size);
+    
+    border-radius: 4px;
+    padding: 4px 8px 4px 10px;
+    background-color: rgba(0,0,0,0.54);
+    color: white;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.06),
+                0 4px 8px 0 rgba(0,0,0,0.06);
+
+    &.active {
+        display: flex;
+        flex-flow: column nowrap;
+    }
+}
+
+li button {
+    text-align: left;
+    padding: 2px;
+    margin: 2px 0;
+    color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    transition: transform 125ms cubic-bezier(0.23, 1, 0.320, 1);
+
+    &:hover, &:focus {
+        transform: translateX(2px);
+        color: rgba(255, 255, 255, 1);
+    }
+}
+
+.label-current {
+    visibility: hidden;
+    font-size: 16px;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: calc(var(--size) + 24px);
+    transform: translateY(-50%) translateX(-8px);
+
+    padding: 4px 8px;
+    border-radius: 4px;
+    background-color: rgba(0,0,0,0.54);
+    color: white;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.06),
+                0 4px 8px 0 rgba(0,0,0,0.06);
+    transition: all 100ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+
+@keyframes rotateIn {
+    from {
+        transform: rotate(-135deg);
+    }
+    to {
+        transform: rotate(0deg);
+    }
+}

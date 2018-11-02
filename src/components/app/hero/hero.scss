@@ -1,0 +1,21 @@
+:host {
+    display: block;
+    background-color: var(--hero-background-color, var(--c-ui-light));
+    background-image: var(--hero-background-image);
+}
+
+.container {
+    box-sizing: border-box;
+    @include container;
+    
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+    
+    height: 22.5em;
+    margin-top: -6em;
+    padding-top: 6em;
+}

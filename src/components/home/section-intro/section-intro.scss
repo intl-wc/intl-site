@@ -1,0 +1,60 @@
+:host {
+    display: block;
+    padding: 64px 0;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+section {
+    @include container;
+
+    @include breakpoint(lg) {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+ p {
+    color: app-color(gray, tint);
+    font-size: 1.25em;
+    margin-bottom: 3rem;
+}
+
+ul {
+    --offset: 1.25em;
+    display: grid;
+    grid-auto-flow: row dense;
+    color: app-color(gray, tint);
+    
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    margin-left: var(--offset);
+
+    li::before {
+        content: '✓';
+        width: var(--offset);
+        height: 1em;
+        color: app-color(green);
+        display: inline-block;
+        margin-left: calc(var(--offset) * -1);
+    }
+    li {
+        padding: 6px 0;
+    }
+
+    @include breakpoint(sm) {
+        grid-auto-flow: column dense;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: 2fr 1fr;
+    }
+
+    @include breakpoint(lg) {
+        margin-left: 4em;
+        margin-top: 1em;
+        grid-template-columns: 1fr 1fr;
+
+        li {
+            padding: 6px 24px;
+        }
+    }
+}
