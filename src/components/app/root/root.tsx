@@ -19,7 +19,8 @@ export class AppRoot {
             </stencil-route-switch>
           </stencil-router>
         </main>,
-        <app-language-controller />
+        <app-footer/>
+        // <app-language-controller />
     ];
   }
 }

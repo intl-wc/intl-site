@@ -1,0 +1,75 @@
+footer {
+  background: black;
+  color: white;
+  margin-bottom: -2em;
+}
+
+::selection {
+  background-color: white;
+  color: black;
+  text-decoration-color: black;
+}
+
+footer .container {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1080px;
+  padding: 24px 12px;
+  margin: auto;
+
+  flex-flow: column nowrap;
+}
+
+@media (min-width: 640px) {
+  footer .container {
+    flex-flow: row nowrap;
+    padding: 12px;
+  }
+}
+
+p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.75em;
+}
+
+footer svg {
+  width: 1em;
+  height: 1em;
+  margin: -0.125em 0.125em;
+  fill: white;
+}
+
+a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: underline;
+}
+a:hover {
+  color: white;
+}
+
+footer .separator {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+footer .icon-heart {
+  display: inline-block;
+  animation: heartbeat 3s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%, 50%, 100% {
+    transform: scale(1);
+  }
+  5% {
+    transform: scale(1.125);
+  }
+  10% {
+    transform: scale(1.05);
+  }
+  15% {
+    transform: scale(1.25);
+  }
+}
