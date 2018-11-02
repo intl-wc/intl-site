@@ -1,7 +1,7 @@
 export const Logo = (props: { collapse: boolean }) => (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1605.4 667.9" class={`logo${props.collapse ? ' logo-collapsed' : ''}`}>
         <style>
-            .paren{'{'}fill:var(--c-gray-light);{'}'}.text{'{'}font-family:'Fira Code';font-weight:bold;font-size:496px;fill: var(--c-yellow){'}'}
+            .paren{'{'}fill:var(--c-gray-light);{'}'}.text{'{'}font-family:'Fira Mono';font-weight:bold;font-size:496px;fill: var(--c-yellow){'}'}
         </style>
         <text class="text" transform="translate(207.495 419.862)">
             {props.collapse ? 'i' : 'intl'}
