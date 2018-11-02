@@ -3,13 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "stencil build --prerender",
+    "build": "stencil build --prerender --service-worker",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll"
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "deploy": "npm run build && firebase deploy"
   },
   "dependencies": {
-    "@stencil/core": "~0.14.1",
+    "@stencil/core": "^0.15.2",
     "@stencil/router": "~0.3.0",
     "baffle": "^0.3.6"
   },
