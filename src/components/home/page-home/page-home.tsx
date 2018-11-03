@@ -20,6 +20,7 @@ export class PageHome {
             <app-hero>
                 <home-hero/>
             </app-hero>,
+            <home-section-stats/>,
             <home-section-intro />,
             <home-section-explorer />
         ]
