@@ -41,6 +41,7 @@ a {
 }
 
 pre {
+    cursor: copy;
     font-size: 1.25em;
     line-height: 1;
     margin: auto 0;
@@ -59,6 +60,12 @@ pre {
         grid-column: 1 / var(--install-end);
     }
 
+    &:hover {
+        code {
+            background-color: app-color(gray);
+        }
+    }
+
 }
 p {
     flex-grow: 1;
@@ -74,6 +81,7 @@ p {
 }
 code {
     margin: 0 0 -4px 0;
+    padding: 4px 8px;
 }
 
 a {
