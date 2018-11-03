@@ -45,6 +45,7 @@ export class HomeHero {
             </h2>,
             <div class='links'>
                 <div class='social'>
+                    <a href="https://npmjs.com/@intl/core"><ion-icon src='/assets/images/npm.svg' /></a>
                     <a href="https://github.com/intl-wc/intl"><ion-icon name='logo-github'/></a>
                     <a href="https://twitter.com/n_moore"><ion-icon name='logo-twitter' /></a>
                 </div>
