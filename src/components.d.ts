@@ -97,6 +97,9 @@ export namespace Components {
   interface HomeSectionIntro {}
   interface HomeSectionIntroAttributes extends StencilHTMLAttributes {}
 
+  interface HomeSectionStats {}
+  interface HomeSectionStatsAttributes extends StencilHTMLAttributes {}
+
   interface HomeSection {
     'center': boolean;
     'threeUp': boolean;
@@ -134,6 +137,7 @@ declare global {
     'HomeSectionExplorer': Components.HomeSectionExplorer;
     'HomeSectionInstall': Components.HomeSectionInstall;
     'HomeSectionIntro': Components.HomeSectionIntro;
+    'HomeSectionStats': Components.HomeSectionStats;
     'HomeSection': Components.HomeSection;
     'NotFoundHero': Components.NotFoundHero;
     'PageNotFound': Components.PageNotFound;
@@ -157,6 +161,7 @@ declare global {
     'home-section-explorer': Components.HomeSectionExplorerAttributes;
     'home-section-install': Components.HomeSectionInstallAttributes;
     'home-section-intro': Components.HomeSectionIntroAttributes;
+    'home-section-stats': Components.HomeSectionStatsAttributes;
     'home-section': Components.HomeSectionAttributes;
     'not-found-hero': Components.NotFoundHeroAttributes;
     'page-not-found': Components.PageNotFoundAttributes;
@@ -265,6 +270,12 @@ declare global {
     new (): HTMLHomeSectionIntroElement;
   };
 
+  interface HTMLHomeSectionStatsElement extends Components.HomeSectionStats, HTMLStencilElement {}
+  var HTMLHomeSectionStatsElement: {
+    prototype: HTMLHomeSectionStatsElement;
+    new (): HTMLHomeSectionStatsElement;
+  };
+
   interface HTMLHomeSectionElement extends Components.HomeSection, HTMLStencilElement {}
   var HTMLHomeSectionElement: {
     prototype: HTMLHomeSectionElement;
@@ -301,6 +312,7 @@ declare global {
     'home-section-explorer': HTMLHomeSectionExplorerElement
     'home-section-install': HTMLHomeSectionInstallElement
     'home-section-intro': HTMLHomeSectionIntroElement
+    'home-section-stats': HTMLHomeSectionStatsElement
     'home-section': HTMLHomeSectionElement
     'not-found-hero': HTMLNotFoundHeroElement
     'page-not-found': HTMLPageNotFoundElement
@@ -324,6 +336,7 @@ declare global {
     'home-section-explorer': HTMLHomeSectionExplorerElement;
     'home-section-install': HTMLHomeSectionInstallElement;
     'home-section-intro': HTMLHomeSectionIntroElement;
+    'home-section-stats': HTMLHomeSectionStatsElement;
     'home-section': HTMLHomeSectionElement;
     'not-found-hero': HTMLNotFoundHeroElement;
     'page-not-found': HTMLPageNotFoundElement;
