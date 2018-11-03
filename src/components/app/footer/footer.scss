@@ -11,6 +11,7 @@ footer {
 }
 
 footer .container {
+  @include container;
   height: 56px;
   display: flex;
   align-items: center;
@@ -25,7 +26,6 @@ footer .container {
 @media (min-width: 640px) {
   footer .container {
     flex-flow: row nowrap;
-    padding: 12px;
   }
 }
 
