@@ -1,4 +1,4 @@
-import { Component, Prop, State, Watch } from '@stencil/core';
+import { Component, Prop, State, Watch, Listen } from '@stencil/core';
 import { MatchResults } from '@stencil/router';
 
 @Component({
@@ -9,11 +9,17 @@ import { MatchResults } from '@stencil/router';
 export class PageDocs {
 
     @State() docPath: string;
+    @State() title: string;
 
     @Prop() match: MatchResults;
     @Watch('match')
     matchChanged() {
         this.docPath = this.match.params.doc;
+    }
+
+    @Listen('docChanged')
+    protected docChangedHandler(event) {
+        this.title = event.detail.title;
     }
 
     componentWillLoad() {
@@ -24,7 +30,7 @@ export class PageDocs {
         return [
             <app-hero size='small'>
                 <div class='hero-container'>
-                    <article><h1>Hello world!</h1></article>
+                    <article><h1>{ this.title }</h1></article>
                 </div>    
             </app-hero>,
             <div class='container'>

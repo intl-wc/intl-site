@@ -1,4 +1,4 @@
-import { Component, Prop, Watch, State } from '@stencil/core';
+import { Component, Prop, Watch, State, Event, EventEmitter } from '@stencil/core';
 
 
 
@@ -10,19 +10,31 @@ import { Component, Prop, Watch, State } from '@stencil/core';
 export class Document {
 
     @State() notFound: boolean = false;
+
+    @Event({ eventName: 'docChanged' }) onDocChanged: EventEmitter<{ title: string }>;
+    
+    @State() title: string;
     @State() content: string;
 
     @Prop() path: string;
     @Watch('path')
     async pathChanged() {
         try {
-            const md = await fetch(`/content/${this.path}/en.json`)
+            const { title, content, ...other} = await fetch(`/content/${this.path}/en.json`)
                 .then(x => {
-                    if (x.ok) return x.text();
+                    if (x.ok) return x.json();
                     throw new Error(`${x.status}`);
                 });
             this.notFound = false;
-            this.content = md;
+
+            this.title = title;
+            this.onDocChanged.emit({ title });
+            this.content = content;
+
+            if (other) {
+                console.log(other);
+            }
+
         } catch (e) {
             if (e.message === '404') {
                 this.notFound = true;

@@ -61,6 +61,7 @@ export namespace Components {
     'path': string;
   }
   interface DocsDocumentAttributes extends StencilHTMLAttributes {
+    'onDocChanged'?: (event: CustomEvent<{ title: string }>) => void;
     'path'?: string;
   }
 

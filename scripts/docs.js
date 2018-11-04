@@ -16,7 +16,9 @@ async function run() {
             .then(buffer => buffer.toString())
             .then(text => {
                 const { body, attributes: data } = frontmatter(text);
-                return { data, content: marked(body) };
+                const content = marked(body);
+                
+                return { data, content };
             });
         return { path, data, content };
     }))

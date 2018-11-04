@@ -1,4 +1,5 @@
 import { Component, State } from '@stencil/core';
+import copy from 'copy-text-to-clipboard';
 
 @Component({
     tag: 'home-section-stats',
@@ -7,6 +8,7 @@ import { Component, State } from '@stencil/core';
 })
 export class SectionStats {
 
+    @State() copied: boolean = false;
     @State() downloads: number = 0;
     @State() stars: number = 0;
     @State() issues: number = 0;
@@ -27,10 +29,20 @@ export class SectionStats {
         return stats;
     }
 
+    private copyToClipboard() {
+        this.copied = copy('npm i @intl/core');
+        if (this.copied) {
+            const timeout = setTimeout(() => {
+                this.copied = false;
+                clearTimeout(timeout);
+            }, 1500);
+        }
+    }
+
     render() {
         return (
             <div class='container'>
-                <pre><code>npm i @intl/core</code></pre>
+                <pre class={this.copied ? 'copied' : ''} onClick={() => this.copyToClipboard()}><code>{!this.copied ? 'npm i @intl/core' : 'copied!'}</code></pre>
                 
                 <a href={`https://www.npmjs.com/package/@intl/core/v/${this.latestRelease}`} class='color-blue'><p><ion-icon name='cube'/><span>{this.latestRelease}</span></p></a>
                 <a href='https://www.npmjs.com/package/@intl/core' class='color-green'><p><ion-icon name='download' /><span>{this.downloads}</span></p></a>

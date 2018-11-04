@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "docs": "node scripts/docs.js",
+    "prebuild": "npm run docs",
     "build": "stencil build --prerender --service-worker",
+    "prestart": "npm run docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
@@ -12,7 +15,8 @@
   "dependencies": {
     "@stencil/core": "^0.15.2",
     "@stencil/router": "~0.3.0",
-    "baffle": "^0.3.6"
+    "baffle": "^0.3.6",
+    "copy-text-to-clipboard": "^1.0.4"
   },
   "author": "Nate Moore",
   "license": "MIT",
