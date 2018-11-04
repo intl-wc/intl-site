@@ -13,6 +13,10 @@
         "destination": false
       },
       {
+        "source": "content/**",
+        "destination": false
+      },
+      {
         "source": "**",
         "destination": "/index.html"
       }
