@@ -1,3 +1,74 @@
+---
+title: Project Structure
+---
+
+There are a few ways you can structure an *intl* project. The recommended method is to create a root folder, where all of your translations will be stored. By default, this is `src/assets/i18n`. 
+
+In the root of that folder, a file should exist for each supported locale, such as `en.json` or `es.json`. Optionally, adding an `index.json` file allows you to share data between all locales. This global file is a good place to define lazy-loaded routes and any shared global phrases (since these remain untranslated, it might make sense to put things like brand or product names here.)
+
+```
+src/assets/i18n/
+├── index.json
+├── de.json
+├── en.json
+├── es.json
+├── ...
+└── zh-cn.json
+```
+
+## Routes
+As your application grows, you may find that the single-file-per-locale structure becomes more difficult to manage. By grouping translations together into *routes*, it becomes easier to reason about individual files. Each route should have a directory containing a json file for each supported locale.
+
+```
+src/assets/i18n/
+├── index.json
+├── de.json
+├── en.json
+├── es.json
+├── ...
+├── zh-cn.json
+└── profile/
+    ├── de.json
+    ├── ...
+    └── zh-cn.json
+```
+
+*intl* can automatically lazy-loads these routes when they are needed. To enable this, simply add a route definition to your global file.
+
+#### index.json
+```json
 {
-  "content": "<p>{\n  &quot;title&quot;: &quot;Project Structure&quot;,\n  &quot;content&quot;: &quot;&lt;h1 id=\"project-structure\"&gt;Project Structure</h1>\\n<p>There are a few ways you can structure an <em>intl</em> project. The recommended method is to create a root folder, where all of your translations will be stored. By default, this is <code>src/assets/i18n</code>. </p>\\n<p>In the root of that folder, a file should exist for each supported locale, such as <code>en.json</code> or <code>es.json</code>. Optionally, adding an <code>index.json</code> file allows you to share data between all locales. This global file is a good place to define lazy-loaded routes and any shared global phrases (since these remain untranslated, it might make sense to put things like brand or product names here.)</p>\\n<pre><code>src/assets/i18n/\\n├── index.json\\n├── de.json\\n├── en.json\\n├── es.json\\n├── ...\\n└── zh-cn.json</code></pre>&lt;h2 id=\"routes\"&gt;Routes</h2>\\n<p>As your application grows, you may find that the single-file-per-locale structure becomes more difficult to manage. By grouping translations together into <em>routes</em>, it becomes easier to reason about individual files. Each route should have a directory containing a json file for each supported locale.</p>\\n<pre><code>src/assets/i18n/\\n├── index.json\\n├── de.json\\n├── en.json\\n├── es.json\\n├── ...\\n├── zh-cn.json\\n└── profile/\\n    ├── de.json\\n    ├── ...\\n    └── zh-cn.json</code></pre><p><em>intl</em> can automatically lazy-loads these routes when they are needed. To enable this, simply add a route definition to your global file.</p>\\n&lt;h4 id=\"index-json\"&gt;index.json</h4>\\n<pre><code class=\"language-json\">{\\n    &quot;profile&quot;: {\\n        &quot;lazy&quot;: true,\\n        &quot;url&quot;: &quot;/profile/:lang.json&quot;\\n    }\\n}</code></pre>\\n&lt;h2 id=\"other-structures\"&gt;Other structures</h2>\\n<p>Although the reccomended approach is the simplest, fastest, and most well-supported method for using <em>intl</em>, it&#39;s understandable that every project differs. Thankfully, <em>intl</em> should be able to support any sort of project structure that fits your needs.</p>\\n<p>Here are a few examples</p>\\n<pre><code>src/assets/i18n/\\n├── index.json\\n├── de/\\n│   ├── index.json\\n│   └── profile.json\\n├── ...\\n└── zh-cn/\\n    ├── index.json\\n    └── profile.json</code></pre>&lt;h4 id=\"index-json\"&gt;index.json</h4>\\n<pre><code class=\"language-json\">{\\n    &quot;profile&quot;: {\\n        &quot;lazy&quot;: true,\\n        &quot;url&quot;: &quot;/:lang/profile.json&quot;\\n    }\\n}</code></pre>\\n&quot;\n}</p>\n"
+  "profile": {
+      "lazy": true,
+      "url": "/profile/:lang.json"
+  }
 }
+```
+
+    
+## Other structures
+Although the reccomended approach is the simplest, fastest, and most well-supported method for using *intl*, it's understandable that every project differs. Thankfully, *intl* should be able to support any sort of project structure that fits your needs.
+
+Here are a few examples:
+
+```
+src/assets/i18n/
+├── index.json
+├── de/
+│   ├── index.json
+│   └── profile.json
+├── ...
+└── zh-cn/
+    ├── index.json
+    └── profile.json
+```
+
+#### index.json
+```json
+{
+  "profile": {
+      "lazy": true,
+      "url": "/:lang/profile.json"
+  }
+}
+```
