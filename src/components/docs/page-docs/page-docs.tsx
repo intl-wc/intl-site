@@ -8,12 +8,12 @@ import { MatchResults } from '@stencil/router';
 })
 export class PageDocs {
 
-    @State() docName: string;
+    @State() docPath: string;
 
     @Prop() match: MatchResults;
     @Watch('match')
     matchChanged() {
-        this.docName = this.match.params.doc;
+        this.docPath = this.match.params.doc;
     }
 
     componentWillLoad() {
@@ -29,28 +29,7 @@ export class PageDocs {
             </app-hero>,
             <div class='container'>
                 <article>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae itaque dignissimos non quidem quos cupiditate modi excepturi minus. Velit fugit eos incidunt facere aperiam reiciendis quibusdam suscipit impedit quae officiis.</p>
+                    <docs-document path={this.docPath}/>
                 </article>
                 <aside>
                     <docs-menu />

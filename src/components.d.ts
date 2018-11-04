@@ -54,6 +54,16 @@ export namespace Components {
     'def'?: string;
   }
 
+  interface PageContributors {}
+  interface PageContributorsAttributes extends StencilHTMLAttributes {}
+
+  interface DocsDocument {
+    'path': string;
+  }
+  interface DocsDocumentAttributes extends StencilHTMLAttributes {
+    'path'?: string;
+  }
+
   interface DocsMenu {}
   interface DocsMenuAttributes extends StencilHTMLAttributes {}
 
@@ -147,6 +157,8 @@ declare global {
     'AppLanguageController': Components.AppLanguageController;
     'AppRoot': Components.AppRoot;
     'AppTerm': Components.AppTerm;
+    'PageContributors': Components.PageContributors;
+    'DocsDocument': Components.DocsDocument;
     'DocsMenu': Components.DocsMenu;
     'PageDocs': Components.PageDocs;
     'ExplorerDir': Components.ExplorerDir;
@@ -172,6 +184,8 @@ declare global {
     'app-language-controller': Components.AppLanguageControllerAttributes;
     'app-root': Components.AppRootAttributes;
     'app-term': Components.AppTermAttributes;
+    'page-contributors': Components.PageContributorsAttributes;
+    'docs-document': Components.DocsDocumentAttributes;
     'docs-menu': Components.DocsMenuAttributes;
     'page-docs': Components.PageDocsAttributes;
     'explorer-dir': Components.ExplorerDirAttributes;
@@ -230,6 +244,18 @@ declare global {
   var HTMLAppTermElement: {
     prototype: HTMLAppTermElement;
     new (): HTMLAppTermElement;
+  };
+
+  interface HTMLPageContributorsElement extends Components.PageContributors, HTMLStencilElement {}
+  var HTMLPageContributorsElement: {
+    prototype: HTMLPageContributorsElement;
+    new (): HTMLPageContributorsElement;
+  };
+
+  interface HTMLDocsDocumentElement extends Components.DocsDocument, HTMLStencilElement {}
+  var HTMLDocsDocumentElement: {
+    prototype: HTMLDocsDocumentElement;
+    new (): HTMLDocsDocumentElement;
   };
 
   interface HTMLDocsMenuElement extends Components.DocsMenu, HTMLStencilElement {}
@@ -330,6 +356,8 @@ declare global {
     'app-language-controller': HTMLAppLanguageControllerElement
     'app-root': HTMLAppRootElement
     'app-term': HTMLAppTermElement
+    'page-contributors': HTMLPageContributorsElement
+    'docs-document': HTMLDocsDocumentElement
     'docs-menu': HTMLDocsMenuElement
     'page-docs': HTMLPageDocsElement
     'explorer-dir': HTMLExplorerDirElement
@@ -355,6 +383,8 @@ declare global {
     'app-language-controller': HTMLAppLanguageControllerElement;
     'app-root': HTMLAppRootElement;
     'app-term': HTMLAppTermElement;
+    'page-contributors': HTMLPageContributorsElement;
+    'docs-document': HTMLDocsDocumentElement;
     'docs-menu': HTMLDocsMenuElement;
     'page-docs': HTMLPageDocsElement;
     'explorer-dir': HTMLExplorerDirElement;

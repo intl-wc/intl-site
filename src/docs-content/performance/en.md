@@ -1,3 +1,7 @@
+---
+title: Performance
+---
+
 # Preloading
 
 It is recommended to preload your global *intl* file (`index.json`) and your app's default locale file (`en.json`) by taking advantage of the `<link>` element's `rel='preload'` attribute. `<intl-dictionary>` is optimized to take advantage of this feature.

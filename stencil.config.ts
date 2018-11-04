@@ -14,7 +14,8 @@ export const config: Config = {
   ],
   globalStyle: 'src/global/app.css',
   copy: [
-    { src: 'demo-files', dest: 'demo' }
+    { src: 'demo-files', dest: 'demo' },
+    { src: 'docs-content', dest: 'content' }
   ],
   plugins: [
     sass({

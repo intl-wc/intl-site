@@ -21,7 +21,7 @@ export class Hero {
             <h2>
                 <x-baffle initial='Sorry!' phrases={this.sorry.join('|')} />
             </h2>,
-            <p>We couldn't find the <code>{window.location.pathname}</code> page!</p>
+            <p>We couldn't find the page you were looking for!</p>
         ]
     }
 }
