@@ -1,6 +1,5 @@
 import { Component } from '@stencil/core';
 
-
 @Component({
     tag: 'not-found-hero',
     styleUrl: 'hero.scss',
@@ -8,12 +7,21 @@ import { Component } from '@stencil/core';
 })
 export class Hero {
 
+    private sorry = [
+        'Scusi',
+        'Lo siento',
+        'Pardon',
+        'Fyrirgefðu',
+        'Sumimasen',
+        'Signómi'
+    ]
+
     render() {
         return [
             <h2>
-                Oops.
+                <x-baffle initial='Sorry!' phrases={this.sorry.join('|')} />
             </h2>,
-            <p>We couldn't find that page</p>
+            <p>We couldn't find the <code>{window.location.pathname}</code> page!</p>
         ]
     }
 }

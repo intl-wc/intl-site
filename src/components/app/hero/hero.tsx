@@ -1,4 +1,4 @@
-import { Component } from '@stencil/core';
+import { Component, Prop } from '@stencil/core';
 
 
 @Component({
@@ -7,6 +7,16 @@ import { Component } from '@stencil/core';
     shadow: true
 })
 export class Hero {
+
+    @Prop() size: 'small' | 'default' = 'default';
+    
+    hostData() {
+        return {
+            class: {
+                [`size-${this.size}`]: true
+            }
+        }
+    }
 
     render() {
         return (

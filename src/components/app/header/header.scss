@@ -38,9 +38,7 @@ header {
         margin: auto;
 
         a {
-            cursor: default;
-        }
-        a:not(.link-active) {
+            text-decoration: none;
             cursor: pointer;
             &:hover .logo .paren {
                 fill: app-color(gray);

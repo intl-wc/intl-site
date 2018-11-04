@@ -1,0 +1,45 @@
+:host {
+    color: app-color(gray, tint);
+    font-family: 'Fira Mono', monospace;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+ul, .submenu, .title, .submenu-item {
+    margin-bottom: 0.75rem;
+}
+
+ul.collapsed {
+    display: none;
+}
+
+.submenu ul {
+    padding-left: 1rem;
+}
+
+.title {
+    display: block;
+    color: app-color(gray, dark);
+}
+
+.submenu-item {
+    &::hover {
+        color: app-color(gray, dark);
+    }
+}
+
+stencil-route-link, a {
+    color: inherit;
+}
+a {
+    text-decoration: none;
+    &.link-active {
+        color: app-color(blue);
+    }
+}

@@ -9,9 +9,21 @@ import '@stencil/core';
 
 import '@stencil/router';
 import '@stencil/state-tunnel';
+import {
+  MatchResults,
+} from '@stencil/router';
 
 
 export namespace Components {
+
+  interface XBaffle {
+    'initial': string;
+    'phrases': string;
+  }
+  interface XBaffleAttributes extends StencilHTMLAttributes {
+    'initial'?: string;
+    'phrases'?: string;
+  }
 
   interface AppFooter {}
   interface AppFooterAttributes extends StencilHTMLAttributes {}
@@ -19,8 +31,12 @@ export namespace Components {
   interface AppHeader {}
   interface AppHeaderAttributes extends StencilHTMLAttributes {}
 
-  interface AppHero {}
-  interface AppHeroAttributes extends StencilHTMLAttributes {}
+  interface AppHero {
+    'size': 'small' | 'default';
+  }
+  interface AppHeroAttributes extends StencilHTMLAttributes {
+    'size'?: 'small' | 'default';
+  }
 
   interface AppLanguageController {
     'changeLanguage': (value: string) => void;
@@ -36,6 +52,16 @@ export namespace Components {
   }
   interface AppTermAttributes extends StencilHTMLAttributes {
     'def'?: string;
+  }
+
+  interface DocsMenu {}
+  interface DocsMenuAttributes extends StencilHTMLAttributes {}
+
+  interface PageDocs {
+    'match': MatchResults;
+  }
+  interface PageDocsAttributes extends StencilHTMLAttributes {
+    'match'?: MatchResults;
   }
 
   interface ExplorerDir {
@@ -85,14 +111,8 @@ export namespace Components {
   interface PageHome {}
   interface PageHomeAttributes extends StencilHTMLAttributes {}
 
-  interface HomeSectionExample {}
-  interface HomeSectionExampleAttributes extends StencilHTMLAttributes {}
-
   interface HomeSectionExplorer {}
   interface HomeSectionExplorerAttributes extends StencilHTMLAttributes {}
-
-  interface HomeSectionInstall {}
-  interface HomeSectionInstallAttributes extends StencilHTMLAttributes {}
 
   interface HomeSectionIntro {}
   interface HomeSectionIntroAttributes extends StencilHTMLAttributes {}
@@ -120,12 +140,15 @@ export namespace Components {
 
 declare global {
   interface StencilElementInterfaces {
+    'XBaffle': Components.XBaffle;
     'AppFooter': Components.AppFooter;
     'AppHeader': Components.AppHeader;
     'AppHero': Components.AppHero;
     'AppLanguageController': Components.AppLanguageController;
     'AppRoot': Components.AppRoot;
     'AppTerm': Components.AppTerm;
+    'DocsMenu': Components.DocsMenu;
+    'PageDocs': Components.PageDocs;
     'ExplorerDir': Components.ExplorerDir;
     'ExplorerEditor': Components.ExplorerEditor;
     'ExplorerFile': Components.ExplorerFile;
@@ -133,9 +156,7 @@ declare global {
     'HomeFeature': Components.HomeFeature;
     'HomeHero': Components.HomeHero;
     'PageHome': Components.PageHome;
-    'HomeSectionExample': Components.HomeSectionExample;
     'HomeSectionExplorer': Components.HomeSectionExplorer;
-    'HomeSectionInstall': Components.HomeSectionInstall;
     'HomeSectionIntro': Components.HomeSectionIntro;
     'HomeSectionStats': Components.HomeSectionStats;
     'HomeSection': Components.HomeSection;
@@ -144,12 +165,15 @@ declare global {
   }
 
   interface StencilIntrinsicElements {
+    'x-baffle': Components.XBaffleAttributes;
     'app-footer': Components.AppFooterAttributes;
     'app-header': Components.AppHeaderAttributes;
     'app-hero': Components.AppHeroAttributes;
     'app-language-controller': Components.AppLanguageControllerAttributes;
     'app-root': Components.AppRootAttributes;
     'app-term': Components.AppTermAttributes;
+    'docs-menu': Components.DocsMenuAttributes;
+    'page-docs': Components.PageDocsAttributes;
     'explorer-dir': Components.ExplorerDirAttributes;
     'explorer-editor': Components.ExplorerEditorAttributes;
     'explorer-file': Components.ExplorerFileAttributes;
@@ -157,9 +181,7 @@ declare global {
     'home-feature': Components.HomeFeatureAttributes;
     'home-hero': Components.HomeHeroAttributes;
     'page-home': Components.PageHomeAttributes;
-    'home-section-example': Components.HomeSectionExampleAttributes;
     'home-section-explorer': Components.HomeSectionExplorerAttributes;
-    'home-section-install': Components.HomeSectionInstallAttributes;
     'home-section-intro': Components.HomeSectionIntroAttributes;
     'home-section-stats': Components.HomeSectionStatsAttributes;
     'home-section': Components.HomeSectionAttributes;
@@ -167,6 +189,12 @@ declare global {
     'page-not-found': Components.PageNotFoundAttributes;
   }
 
+
+  interface HTMLXBaffleElement extends Components.XBaffle, HTMLStencilElement {}
+  var HTMLXBaffleElement: {
+    prototype: HTMLXBaffleElement;
+    new (): HTMLXBaffleElement;
+  };
 
   interface HTMLAppFooterElement extends Components.AppFooter, HTMLStencilElement {}
   var HTMLAppFooterElement: {
@@ -202,6 +230,18 @@ declare global {
   var HTMLAppTermElement: {
     prototype: HTMLAppTermElement;
     new (): HTMLAppTermElement;
+  };
+
+  interface HTMLDocsMenuElement extends Components.DocsMenu, HTMLStencilElement {}
+  var HTMLDocsMenuElement: {
+    prototype: HTMLDocsMenuElement;
+    new (): HTMLDocsMenuElement;
+  };
+
+  interface HTMLPageDocsElement extends Components.PageDocs, HTMLStencilElement {}
+  var HTMLPageDocsElement: {
+    prototype: HTMLPageDocsElement;
+    new (): HTMLPageDocsElement;
   };
 
   interface HTMLExplorerDirElement extends Components.ExplorerDir, HTMLStencilElement {}
@@ -246,22 +286,10 @@ declare global {
     new (): HTMLPageHomeElement;
   };
 
-  interface HTMLHomeSectionExampleElement extends Components.HomeSectionExample, HTMLStencilElement {}
-  var HTMLHomeSectionExampleElement: {
-    prototype: HTMLHomeSectionExampleElement;
-    new (): HTMLHomeSectionExampleElement;
-  };
-
   interface HTMLHomeSectionExplorerElement extends Components.HomeSectionExplorer, HTMLStencilElement {}
   var HTMLHomeSectionExplorerElement: {
     prototype: HTMLHomeSectionExplorerElement;
     new (): HTMLHomeSectionExplorerElement;
-  };
-
-  interface HTMLHomeSectionInstallElement extends Components.HomeSectionInstall, HTMLStencilElement {}
-  var HTMLHomeSectionInstallElement: {
-    prototype: HTMLHomeSectionInstallElement;
-    new (): HTMLHomeSectionInstallElement;
   };
 
   interface HTMLHomeSectionIntroElement extends Components.HomeSectionIntro, HTMLStencilElement {}
@@ -295,12 +323,15 @@ declare global {
   };
 
   interface HTMLElementTagNameMap {
+    'x-baffle': HTMLXBaffleElement
     'app-footer': HTMLAppFooterElement
     'app-header': HTMLAppHeaderElement
     'app-hero': HTMLAppHeroElement
     'app-language-controller': HTMLAppLanguageControllerElement
     'app-root': HTMLAppRootElement
     'app-term': HTMLAppTermElement
+    'docs-menu': HTMLDocsMenuElement
+    'page-docs': HTMLPageDocsElement
     'explorer-dir': HTMLExplorerDirElement
     'explorer-editor': HTMLExplorerEditorElement
     'explorer-file': HTMLExplorerFileElement
@@ -308,9 +339,7 @@ declare global {
     'home-feature': HTMLHomeFeatureElement
     'home-hero': HTMLHomeHeroElement
     'page-home': HTMLPageHomeElement
-    'home-section-example': HTMLHomeSectionExampleElement
     'home-section-explorer': HTMLHomeSectionExplorerElement
-    'home-section-install': HTMLHomeSectionInstallElement
     'home-section-intro': HTMLHomeSectionIntroElement
     'home-section-stats': HTMLHomeSectionStatsElement
     'home-section': HTMLHomeSectionElement
@@ -319,12 +348,15 @@ declare global {
   }
 
   interface ElementTagNameMap {
+    'x-baffle': HTMLXBaffleElement;
     'app-footer': HTMLAppFooterElement;
     'app-header': HTMLAppHeaderElement;
     'app-hero': HTMLAppHeroElement;
     'app-language-controller': HTMLAppLanguageControllerElement;
     'app-root': HTMLAppRootElement;
     'app-term': HTMLAppTermElement;
+    'docs-menu': HTMLDocsMenuElement;
+    'page-docs': HTMLPageDocsElement;
     'explorer-dir': HTMLExplorerDirElement;
     'explorer-editor': HTMLExplorerEditorElement;
     'explorer-file': HTMLExplorerFileElement;
@@ -332,9 +364,7 @@ declare global {
     'home-feature': HTMLHomeFeatureElement;
     'home-hero': HTMLHomeHeroElement;
     'page-home': HTMLPageHomeElement;
-    'home-section-example': HTMLHomeSectionExampleElement;
     'home-section-explorer': HTMLHomeSectionExplorerElement;
-    'home-section-install': HTMLHomeSectionInstallElement;
     'home-section-intro': HTMLHomeSectionIntroElement;
     'home-section-stats': HTMLHomeSectionStatsElement;
     'home-section': HTMLHomeSectionElement;

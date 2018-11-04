@@ -19,3 +19,9 @@
     margin-top: -6em;
     padding-top: 6em;
 }
+
+:host(.size-small) {
+    .container {
+        height: 14em;
+    }
+}

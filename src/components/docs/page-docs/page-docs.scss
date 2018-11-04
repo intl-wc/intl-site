@@ -1,0 +1,51 @@
+:host {
+    position: relative;
+    display: block;
+    min-height: calc(100vh - 104px - 2rem);
+}
+
+.container, .hero-container {
+    @include container;
+}
+
+article :first-child {
+    margin-top: 0;
+}
+
+.container article {
+    padding-bottom: 128px;
+}
+
+aside {
+    display: none;
+}
+
+@include breakpoint(md) {
+
+    .container, .hero-container {
+        display: grid;
+        column-gap: 1rem;
+        grid-template-rows: [main] 1fr;
+        grid-template-columns: [menu] 220px [doc] 1fr;
+    }
+    
+    .container {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    aside {
+        display: block;
+        position: sticky;
+        height: 50vh;
+        grid-row: main;
+        grid-column: menu;
+        top: 72px;
+    }
+
+    article {
+        position: relative;
+        grid-row: main;
+        grid-column: doc;
+    }
+}
