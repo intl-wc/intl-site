@@ -21,7 +21,7 @@ export class HomeHero {
                     <a href="https://twitter.com/n_moore"><ion-icon name='logo-twitter' /></a>
                 </div>
                 <div class='cta'>
-                    <stencil-route-link url='/docs'>
+                    <stencil-route-link url='/docs/introduction'>
                         Read the Docs <ion-icon name='arrow-forward' />
                     </stencil-route-link>
                 </div>

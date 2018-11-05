@@ -20,16 +20,15 @@
         },
         {
           "source": "/docs",
-          "destination": "/docs/",
-          "type": 301
-        },
-        {
-          "source": "/docs/",
           "destination": "/docs/introduction",
           "type": 301
         }
     ],
     "rewrites": [
+      {
+        "source": "/demo/:file*",
+        "destination": "/demo/:file*"
+      },
       {
         "source": "/demo/:file*",
         "destination": "/demo/:file*"
