@@ -27,7 +27,7 @@
           "source": "/docs/",
           "destination": "/docs/introduction",
           "type": 301
-        },
+        }
     ],
     "rewrites": [
       {
