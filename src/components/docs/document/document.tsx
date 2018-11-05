@@ -31,9 +31,7 @@ export class Document {
             this.onDocChanged.emit({ title });
             this.content = content;
 
-            if (other) {
-                console.log(other);
-            }
+            if (other) { }
 
         } catch (e) {
             if (e.message === '404') {

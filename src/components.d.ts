@@ -12,6 +12,9 @@ import '@stencil/state-tunnel';
 import {
   MatchResults,
 } from '@stencil/router';
+import {
+  File,
+} from './utils/state/explorer';
 
 
 export namespace Components {
@@ -83,25 +86,32 @@ export namespace Components {
   }
 
   interface ExplorerEditor {
-    'annotations': { [key: string]: string };
-    'content': string;
-    'filename': string;
+    'currentFile': File;
+    'gettingFile': boolean;
   }
   interface ExplorerEditorAttributes extends StencilHTMLAttributes {
-    'annotations'?: { [key: string]: string };
-    'content'?: string;
-    'filename'?: string;
+    'currentFile'?: File;
+    'gettingFile'?: boolean;
+  }
+
+  interface ExplorerRoot {
+    'files': any;
+    'initial': string;
+  }
+  interface ExplorerRootAttributes extends StencilHTMLAttributes {
+    'files'?: any;
+    'initial'?: string;
   }
 
   interface ExplorerFile {
-    'close': () => void;
+    'currentFile': File;
     'label': string;
-    'open': boolean;
+    'openFile': any;
   }
   interface ExplorerFileAttributes extends StencilHTMLAttributes {
+    'currentFile'?: File;
     'label'?: string;
-    'onOpen'?: (event: CustomEvent<string>) => void;
-    'open'?: boolean;
+    'openFile'?: any;
   }
 
   interface ExplorerSidebar {
@@ -110,7 +120,6 @@ export namespace Components {
   }
   interface ExplorerSidebarAttributes extends StencilHTMLAttributes {
     'label'?: any;
-    'onFileOpen'?: (event: CustomEvent<any>) => void;
   }
 
   interface HomeFeature {}
@@ -164,6 +173,7 @@ declare global {
     'PageDocs': Components.PageDocs;
     'ExplorerDir': Components.ExplorerDir;
     'ExplorerEditor': Components.ExplorerEditor;
+    'ExplorerRoot': Components.ExplorerRoot;
     'ExplorerFile': Components.ExplorerFile;
     'ExplorerSidebar': Components.ExplorerSidebar;
     'HomeFeature': Components.HomeFeature;
@@ -191,6 +201,7 @@ declare global {
     'page-docs': Components.PageDocsAttributes;
     'explorer-dir': Components.ExplorerDirAttributes;
     'explorer-editor': Components.ExplorerEditorAttributes;
+    'explorer-root': Components.ExplorerRootAttributes;
     'explorer-file': Components.ExplorerFileAttributes;
     'explorer-sidebar': Components.ExplorerSidebarAttributes;
     'home-feature': Components.HomeFeatureAttributes;
@@ -283,6 +294,12 @@ declare global {
     new (): HTMLExplorerEditorElement;
   };
 
+  interface HTMLExplorerRootElement extends Components.ExplorerRoot, HTMLStencilElement {}
+  var HTMLExplorerRootElement: {
+    prototype: HTMLExplorerRootElement;
+    new (): HTMLExplorerRootElement;
+  };
+
   interface HTMLExplorerFileElement extends Components.ExplorerFile, HTMLStencilElement {}
   var HTMLExplorerFileElement: {
     prototype: HTMLExplorerFileElement;
@@ -363,6 +380,7 @@ declare global {
     'page-docs': HTMLPageDocsElement
     'explorer-dir': HTMLExplorerDirElement
     'explorer-editor': HTMLExplorerEditorElement
+    'explorer-root': HTMLExplorerRootElement
     'explorer-file': HTMLExplorerFileElement
     'explorer-sidebar': HTMLExplorerSidebarElement
     'home-feature': HTMLHomeFeatureElement
@@ -390,6 +408,7 @@ declare global {
     'page-docs': HTMLPageDocsElement;
     'explorer-dir': HTMLExplorerDirElement;
     'explorer-editor': HTMLExplorerEditorElement;
+    'explorer-root': HTMLExplorerRootElement;
     'explorer-file': HTMLExplorerFileElement;
     'explorer-sidebar': HTMLExplorerSidebarElement;
     'home-feature': HTMLHomeFeatureElement;

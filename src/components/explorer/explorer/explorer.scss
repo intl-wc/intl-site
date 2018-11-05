@@ -1,0 +1,26 @@
+:host {
+    @include breakpoint(sm) {
+        display: grid;
+        grid-template-columns: 192px 1fr;
+    }
+}
+
+explorer-sidebar {
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 8px;
+
+    @include breakpoint(sm) {
+        border-bottom-left-radius: 8px;
+        border-top-right-radius: 0;
+    }
+}
+
+explorer-editor {
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 0;
+    
+    @include breakpoint(sm) {
+        border-bottom-left-radius: 0;
+        border-top-right-radius: 8px;
+    }
+}

@@ -92,7 +92,19 @@ pre[class*="language-"] {
             }
             .annotation {
                 display: block;
+                animation: slideInFromLeft 200ms cubic-bezier(0.23, 1, 0.320, 1) forwards;
             }
         }
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
     }
 }

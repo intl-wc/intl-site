@@ -1,4 +1,4 @@
-import { Component, Prop, State, Element } from '@stencil/core';
+import { Component, Prop, State, Element, Watch } from '@stencil/core';
 
 
 @Component({
@@ -17,9 +17,15 @@ export class Dir {
     
     @Prop({ context: 'publicPath' }) private publicPath: string;
     
+    @State() _label: string;
     @Prop() label: string;
+    @Watch('label')
+    labelChanged() {
+        this._label = this.label.split('/').pop().trim();
+    }
 
     componentWillLoad() {
+        if (this.label) this.labelChanged();
         this.getIcon();
     }
 
@@ -61,7 +67,7 @@ export class Dir {
                 <li class='label' onClick={(event) => this.toggle(event)}>
                     <ion-icon class='arrow' name='arrow-dropright'></ion-icon>
                     <img class='icon' src={`${this.publicPath}/icons/folder-${this.icon}${this.isOpen ? '-open' : ''}.svg`}/>
-                    <h3>{this.label}</h3>
+                    <h3>{this._label}</h3>
                 </li>
                 <slot/>
             </ul>

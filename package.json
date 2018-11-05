@@ -14,7 +14,8 @@
   },
   "dependencies": {
     "@stencil/core": "^0.15.2",
-    "@stencil/router": "~0.3.0",
+    "@stencil/router": "^0.3.1",
+    "@stencil/state-tunnel": "0.0.9-1",
     "baffle": "^0.3.6",
     "copy-text-to-clipboard": "^1.0.4"
   },
