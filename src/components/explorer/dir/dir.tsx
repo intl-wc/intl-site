@@ -39,11 +39,11 @@ export class Dir {
     }
 
     private getIcon() {
-        if (this.label === 'src') {
+        if (this._label === 'src') {
             this.icon = 'src';
-        } else if (this.label === 'assets') {
+        } else if (this._label === 'assets') {
             this.icon = 'resource'
-        } else if (this.label === 'i18n') {
+        } else if (this._label === 'i18n') {
             this.icon = 'i18n'
         } else {
             this.icon = 'routes'
