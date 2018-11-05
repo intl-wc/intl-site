@@ -7,14 +7,36 @@
       "**/node_modules/**"
     ],
     "cleanUrls": true,
+    "redirects": [
+        {
+          "source": "/npm",
+          "destination": "https://www.npmjs.com/package/@intl/core",
+          "type": 301
+        },
+        {
+          "source": "/github",
+          "destination": "https://github.com/intl-wc/intl",
+          "type": 301
+        },
+        {
+          "source": "/docs",
+          "destination": "/docs/",
+          "type": 301
+        },
+        {
+          "source": "/docs/",
+          "destination": "/docs/introduction",
+          "type": 301
+        },
+    ],
     "rewrites": [
       {
-        "source": "demo/**",
-        "destination": false
+        "source": "/demo/:file*",
+        "destination": "/demo/:file*"
       },
       {
-        "source": "**/*.@(json)",
-        "destination": false
+        "source": "/content/:file*",
+        "destination": "/content/:file*"
       },
       {
         "source": "**",

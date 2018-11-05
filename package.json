@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "docs": "node scripts/docs.js",
-    "prebuild": "npm run docs",
     "build": "stencil build --prerender --service-worker",
+    "postbuild": "npm run docs",
     "prestart": "npm run docs",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
